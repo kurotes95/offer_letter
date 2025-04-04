@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AchieveMpls Offer Letter Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; }
+    input, textarea, select { width: 100%; padding: 8px; box-sizing: border-box; }
+    input[type="checkbox"] { width: auto; }
+    .inline { display: inline-block; margin-right: 10px; }
+    button { margin: 15px 0; }
+  </style>
+</head>
+<body>
+  <h1>AchieveMpls Offer Letter Form</h1>
+  <form id="offerForm">
+    <!-- 1. Hiring Manager (name) -->
+    <div class="form-group">
+      <label for="hiringManager">Hiring Manager (Name):</label>
+      <input type="text" id="hiringManager" name="hiringManager" required />
+    </div>
+
+    <!-- 2. Candidate’s full name -->
+    <div class="form-group">
+      <label for="candidateName">Candidate’s Full Name:</label>
+      <input type="text" id="candidateName" name="candidateName" required />
+    </div>
+
+    <!-- 3. Candidate’s email -->
+    <div class="form-group">
+      <label for="candidateEmail">Candidate’s Email:</label>
+      <input type="email" id="candidateEmail" name="candidateEmail" required />
+    </div>
+
+    <!-- 4. Candidate’s home address -->
+    <div class="form-group">
+      <label for="candidateAddress">Candidate’s Home Address:</label>
+      <textarea id="candidateAddress" name="candidateAddress" required></textarea>
+    </div>
+
+    <!-- 5. Position title -->
+    <div class="form-group">
+      <label for="positionTitle">Position Title:</label>
+      <input type="text" id="positionTitle" name="positionTitle" required />
+    </div>
+
+    <!-- 6. Job Location -->
+    <div class="form-group">
+      <label for="jobLocation">Job Location:</label>
+      <input type="text" id="jobLocation" name="jobLocation" required />
+    </div>
+
+    <!-- 7. Title of supervisor -->
+    <div class="form-group">
+      <label for="supervisorTitle">Title of Supervisor:</label>
+      <input type="text" id="supervisorTitle" name="supervisorTitle" required />
+    </div>
+
+    <!-- 7a. Name of supervisor -->
+    <div class="form-group">
+      <label for="supervisorName">Name of Supervisor:</label>
+      <input type="text" id="supervisorName" name="supervisorName" required />
+    </div>
+
+    <!-- 8. Hours per week / FTE -->
+    <div class="form-group">
+      <label for="hoursPerWeek">Hours per Week:</label>
+      <input type="number" step="0.01" id="hoursPerWeek" name="hoursPerWeek" required />
+    </div>
+    <div class="form-group">
+      <label for="fte">FTE:</label>
+      <input type="number" step="0.01" id="fte" name="fte" required />
+    </div>
+
+    <!-- 9. Start date + pay period explanation -->
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" name="startDate" required />
+    </div>
+    <div class="form-group">
+      <label>Is this date in the middle of a pay period? If yes, have you explained this to the candidate?</label>
+      <div class="inline"><input type="checkbox" name="midPayPeriodExplained" value="Yes" /> Yes</div>
+    </div>
+
+    <!-- 10. Exempt or nonexempt -->
+    <div class="form-group">
+      <label>Exempt or Nonexempt:</label>
+      <div class="inline">
+        <input type="radio" id="exempt" name="exemptStatus" value="Exempt" required />
+        <label for="exempt" style="display:inline; font-weight:normal">Exempt</label>
+      </div>
+      <div class="inline">
+        <input type="radio" id="nonexempt" name="exemptStatus" value="Nonexempt" />
+        <label for="nonexempt" style="display:inline; font-weight:normal">Nonexempt</label>
+      </div>
+    </div>
+
+    <!-- 11. Wages -->
+    <div class="form-group">
+      <label>Wages:</label>
+      <div>
+        <input type="radio" id="salaryRadio" name="wageType" value="Salary" required />
+        <label for="salaryRadio" style="display:inline; font-weight:normal">Salary (annual)</label>
+        <input type="number" step="0.01" name="salaryAmount" placeholder="$ per year" />
+      </div>
+      <div>
+        <input type="radio" id="hourlyRadio" name="wageType" value="Hourly" />
+        <label for="hourlyRadio" style="display:inline; font-weight:normal">Hourly</label>
+        <input type="number" step="0.01" name="hourlyAmount" placeholder="$ per hour" />
+      </div>
+    </div>
+
+    <!-- 12. PTO accrual rate -->
+    <div class="form-group">
+      <label>PTO Accrual Rate:</label>
+      <div style="margin-left: 20px;">
+        <strong>Office-based staff:</strong><br/>
+        Full-time first year employees: 6.0 hours per pay period = 18 days per year<br/>
+        <label for="officeFte">FTE:</label>
+        <input type="number" step="0.01" id="officeFte" name="officeFte" placeholder="(e.g. 1.0, 0.5)" /> hours per pay period<br/>
+        <label for="officeHourly">Hourly accrual rate (0.069/hr):</label>
+        <input type="number" step="0.0001" id="officeHourly" name="officeHourly" placeholder="0.069" /><br/><br/>
+
+        <strong>School-based staff:</strong><br/>
+        Full-time first year employees: 5.52 hours per pay period = 16.5 days per year<br/>
+        <label for="schoolFte">FTE:</label>
+        <input type="number" step="0.01" id="schoolFte" name="schoolFte" placeholder="(e.g. 1.0, 0.5)" /> hours per pay period<br/>
+        <label for="schoolHourly">Hourly accrual rate (0.063/hr):</label>
+        <input type="number" step="0.0001" id="schoolHourly" name="schoolHourly" placeholder="0.063" /><br/>
+      </div>
+    </div>
+
+    <!-- 13. Checklist before submitting form to DFO -->
+    <h2>Checklist before Submitting</h2>
+
+    <div class="form-group">
+      <input type="checkbox" id="applicationReceived" name="applicationReceived" value="Yes" />
+      <label for="applicationReceived" style="display:inline; font-weight:normal">Candidate’s employment application received (submit to DFO)</label>
+    </div>
+
+    <div class="form-group">
+      <label for="referenceChecker">Reference checks will be completed by (Name):</label>
+      <input type="text" id="referenceChecker" name="referenceChecker" />
+    </div>
+
+    <div class="form-group">
+      <label for="directorApprovalName">Department Director Approval - Name & Title:</label>
+      <input type="text" id="directorApprovalName" name="directorApprovalName" />
+    </div>
+
+    <div class="form-group">
+      <label for="directorApprovalDate">Department Director Approval - Date:</label>
+      <input type="date" id="directorApprovalDate" name="directorApprovalDate" />
+    </div>
+
+    <div class="form-group">
+      <label for="directorSignature">Department Director Signature (type name as signature):</label>
+      <input type="text" id="directorSignature" name="directorSignature" />
+    </div>
+
+    <!-- Download button -->
+    <button type="button" onclick="downloadAsDoc()">Download as Word</button>
+  </form>
+
+  <script>
+    function downloadAsDoc() {
+      // Gather the form data
+      const form = document.getElementById('offerForm');
+      const formData = new FormData(form);
+
+      // Build an HTML table or paragraphs for the doc
+      let docContent = '<h1>Offer Letter Submission</h1>';
+      formData.forEach((value, key) => {
+        docContent += `<p><strong>${key}:</strong> ${value}</p>`;
+      });
+
+      // Wrap it in basic HTML
+      const html = `
+        <html>
+          <head><meta charset='utf-8'></head>
+          <body>
+            ${docContent}
+          </body>
+        </html>
+      `;
+
+      // Create a Blob of type msword
+      const blob = new Blob([html], { type: 'application/msword' });
+
+      // Create a link element for download
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'offer_letter.doc'; // The file name
+      link.click();
+
+      // Clean up the URL object
+      setTimeout(() => {
+        URL.revokeObjectURL(link.href);
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
